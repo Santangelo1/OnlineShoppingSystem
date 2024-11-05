@@ -29,7 +29,7 @@ std::string Order::getOrderDate() const {
 // Calculate total order amount
 void Order::calculateTotalAmount() {
     totalAmount = 0.0;
-    for (const auto& item : items) {
+    for (const OrderItem& item : items) {
         totalAmount += item.itemTotal;
     }
 }
