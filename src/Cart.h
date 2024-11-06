@@ -1,3 +1,6 @@
+#ifndef CART_H
+#define CART_H
+
 #include "User.h"
 #include <iostream>
 
