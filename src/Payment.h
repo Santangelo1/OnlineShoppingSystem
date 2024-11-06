@@ -2,7 +2,7 @@
 #define PAYMENT_H
 
 #include <string>
-#include <iostream>
+
 
 class Payment {
 private:
@@ -22,8 +22,6 @@ public:
     // Payment Processing
     bool validatePaymentDetails(const std::string& details);  // Validate payment details
     bool processPayment(const std::string& details);          // Process payment
-
-    // Display payment result
     void displayPaymentStatus() const;
 
     // Destructor
