@@ -2,26 +2,32 @@
 #define ORDER_H
 
 #include "Product.h"
-#include "Cart.h"
 #include <string>
 #include <vector>
 
-struct OrderItem {
+class OrderItem {
+private:
     Product product;
     int quantity;
     double itemTotal;
 
+public:
     OrderItem(const Product& product, int quantity)
         : product(product), quantity(quantity), itemTotal(product.getPrice() * quantity) {}
+
+    // Getters
+    Product getProduct() const { return product; }
+    int getQuantity() const { return quantity; }
+    double getItemTotal() const { return itemTotal; }
 };
 
 class Order {
 private:
-    int orderId;                              // Unique order ID
-    std::string userId;                       // ID of the user who placed the order
-    std::vector<OrderItem> items;             // List of items in the order
-    double totalAmount;                       // Total order amount
-    std::string orderDate;                    // Order date (string format for simplicity)
+    int orderId;
+    std::string userId;
+    std::vector<OrderItem> items;
+    double totalAmount;
+    std::string orderDate;
 
 public:
     // Constructor
