@@ -1,2 +1,5 @@
 id, name, category, description, price, quantity
-1,Smartphone,Electronics,Latest smartphone with 5g
+1,Smartphone,Electronics,Latest smartphone with 5G,799.99,50
+2,Laptop,Electronics,High-performance laptop,1299.99,30
+3,Headphones,Audio,Noise-canceling headphones,199.99,100
+
