@@ -1,22 +1,29 @@
 # OnlineShoppingManagementSystem
+
 Il carrello della spesa- The shopping cart
 
-# Online Shopping Cart System
-
 ## Project Overview
+
 This project is an online shopping cart application that allows users with the ability to browse products, manage a shopping cart, place orders, and simulate a payment system. The system also includes an admin panel that enables inventory management, sales tracking, and customer support functionality.
 
 ## Key Features
 
 ### Core Features
+
 - **User Authentication**: Supports sign-up, login, logout, and profile management for users.
+  
 - **Product Catalog**: Allows users to view, search, and sort through available products.
+- 
 - **Shopping Cart**: Users can add products to their cart, update quantities, and proceed to checkout.
+- 
 - **Order Management**: Users can view order history, track order status, and admins can view all orders.
+- 
 - **Payment Integration**: Simulates payment processing with options for different payment methods.
+- 
 - **Admin Panel**: Admins can manage products, view detailed sales reports, and handle customer queries.
 
 ### Innovative Features
+
 The Online Shopping Cart System includes several innovative features that enhance functionality and user experience.
 
 1. **Dynamic Recommendations Engine**
@@ -51,24 +58,36 @@ The Online Shopping Cart System includes several innovative features that enhanc
   
 -File Initialization
 The system initializes with data from three files:
+
 - products.csv :Contains product inventory data.
+
 - users.csv   : Contains user account information.
 
 Compilation Instructions
+
 1. Ensure you have a C++ compiler(such as g++) installed.
-2. To compile the project, run the follwing command in the terminal:
+2. 
+3. To compile the project, run the following command in the terminal:
+4. 
    g++ -o shopping_cart main.cpp Product.cpp Inventory.cpp User.cpp Cart.cpp Order.cpp Payment.cpp -std=c++11
 
 Execution Instructions
+
 To run the project:
+
 1. Place products.csv, users.csv, and orders.csv in same directory as the executable.
-2. Execute the program with the following command:
+2. 
+3. Execute the program with the following command:
+4. 
    ./shopping_cart
-3. Follow on-screen prompts to interact with the application.
+5. Follow on-screen prompts to interact with the application.
 
 Project Status
+
 -Current State: The project is complete with core functionality.
+
 -Known Bugs: None at this time.
+
 -Incomplete Features: None
 
 User Manual
@@ -104,7 +123,7 @@ Here are the design elements:
 
 UML Diagrams
 
-The following UML Diagrams illustrate the structure and relationaships between classes.
+The following UML Diagrams illustrate the structure and relationships between classes.
 
 classDiagram
     class User {
@@ -112,7 +131,7 @@ classDiagram
         +string password
         +displayRole()
         #authenticate()
-        <<abstract>>
+        (abstract)
     }
     User <|-- Customer
     User <|-- Admin
@@ -159,7 +178,3 @@ classDiagram
     Product <-- Inventory : contains
     Cart "1" -- "0..*" Product : contains
     Order "1" -- "1" Product : contains
-
-
-
-
