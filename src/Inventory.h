@@ -18,7 +18,7 @@ public:
                        const std::string &description, double price, int quantity);
 
     void listProducts() const;                       // This can display products directly if needed
-    const std::vector<Product> &getProducts() const; // New method to access products for other processing
+    const std::vector<Product>& getProducts() const; // New method to access products for other processing
 
     ~Inventory();
 };
