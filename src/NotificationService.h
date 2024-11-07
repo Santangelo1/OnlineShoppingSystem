@@ -14,7 +14,8 @@ public:
     void checkLowStock(const Inventory &inventory, int threshold) const;
 
     // Method to send a notification message
-    void sendNotification(const std::string &message) const;
+    void sendNotification(const std::string&  message, const std::string& 
+    type = "console") const;
 
     // Destructor
     ~NotificationService();
