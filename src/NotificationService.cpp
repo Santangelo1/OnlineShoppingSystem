@@ -7,7 +7,9 @@ NotificationService::NotificationService() {}
 // Method to check for low stock in the inventory
 void NotificationService::checkLowStock(const Inventory &inventory, int threshold) const
 {
-    for (const auto &product : inventory.getProducts())
+
+    //Access products via getProducts
+    for (const auto& product : inventory.getProducts())
     { // Assuming `getProducts` returns a vector of all products
         if (product.getStockQuantity() <= threshold)
         {
