@@ -19,11 +19,23 @@ void NotificationService::checkLowStock(const Inventory &inventory, int threshol
     }
 }
 
-// Method to send notification message (prints to console for demonstration)
-void NotificationService::sendNotification(const std::string &message) const
-{
-    std::cout << "Notification: " << message << std::endl;
-}
+//Method to send a notification message
+void NotificationService::sendNotification(const std::string& message,
+const std::string& type) const {
+    if (type == "console") {
+        std::cout << "Notification: " << message << std::endl;
+    }
+
+    //Future types (e.g. file logging or email) can be added here
+    else if  (type == "file") {
+        //Code for logging to a file (e.g., using ofstream)
+    } else if  (type == "email") {
+        //Code for sending email notifications
+    } else {
+        std::cerr << "Unknown notification type: " <<
+        type <<  std::endl;
+    }
+    }
 
 // Destructor
 NotificationService::~NotificationService() {}
