@@ -15,10 +15,10 @@ public:
     void addProduct(const Product &product);
     bool deleteProduct(int productId);
     bool updateProduct(int productId, const std::string &name, const std::string &category,
-                       const std::string &description, double price, int quantity);
+    const std::string &description, double price, int quantity);
 
-    void listProducts() const;                       // This can display products directly if needed
-    const std::vector<Product>& getProducts() const; // New method to access products for other processing
+//New version of listProducts that returns a reference to the product vector
+ const std::vector<Product>& listProducts() const; 
 
     ~Inventory();
 };
