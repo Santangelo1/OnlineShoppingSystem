@@ -32,9 +32,9 @@ double SalesAnalytics::calculateAverageOrderValue() const {
     return totalRevenue / salesData.size();
 }
 
-// Get top N selling products
+// Get top  selling products
 std::vector<int> SalesAnalytics::getTopSellingProducts(int topN) const {
-    std::vector<std::pair<int, int>> sortedProducts(productSalesCount.begin(), productSalesCount.end());
+    std::vector<std::pair<int, int> > sortedProducts(productSalesCount.begin(), productSalesCount.end());
     std::sort(sortedProducts.begin(), sortedProducts.end(), [](const auto& a, const auto& b) {
         return a.second > b.second;  // Sort by quantity sold in descending order
     });

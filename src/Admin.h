@@ -4,7 +4,7 @@
 #include "User.h"
 #include "Inventory.h"
 #include "SalesAnalytics.h"
-#include "../services/NotificationService.h" 
+#include "NotificationService.h" 
 #include <string>
 
 class Admin : public User
