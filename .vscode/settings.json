@@ -11,5 +11,8 @@
         "sstream",
         "stod",
         "stoi"
-    ]
+    ],
+    "files.associations": {
+        "vector": "cpp"
+    }
 }

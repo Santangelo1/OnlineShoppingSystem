@@ -3,17 +3,20 @@
 
 #include <string>
 
-class Product {
+class Product
+{
 private:
-    int id;                       // Unique identifier for the product
-    std::string name;             // Name of the product
-    std::string description;      // Description of the product
-    double price;                 // Price of the product
-    int stockQuantity;            // Available stock of the product
+    int id;                  // Unique identifier for the product
+    std::string name;        // Name of the product
+    std::string category;    // Category of the product
+    std::string description; // Description of the product
+    double price;            // Price of the product
+    int stockQuantity;       // Available stock of the product
+    bool isAvailable;        // Availability of the product
 
 public:
     // Constructor
-    Product(int id, const std::string& name, const std::string& description, double price, int stockQuantity);
+    Product(int id, const std::string &name, const std::string &category, const std::string &description, double price, int stockQuantity);
 
     // Getters
     int getId() const;
@@ -25,11 +28,13 @@ public:
     // Setters
     void setPrice(double price);
     void setStockQuantity(int stock);
+    void setAvailability(bool available);
 
     // Business Logic Methods
-    bool isInStock() const;                  // Check if product is in stock
-    void displayProduct() const;             // Display product details
-    bool reduceStock(int quantity);          // Reduce stock by a given quantity
+    bool isInStock() const;         // Check if product is in stock
+    void displayProduct() const;    // Display product details
+    bool reduceStock(int quantity); // Reduce stock by a given quantity
+    void display() const;
 
     // Destructor
     ~Product();

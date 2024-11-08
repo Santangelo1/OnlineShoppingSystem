@@ -5,15 +5,19 @@
 Inventory::Inventory() {}
 
 // Add a new product to inventory
-void Inventory::addProduct(const Product& product) {
+void Inventory::addProduct(const Product &product)
+{
     products.push_back(product);
     std::cout << "Product added: " << product.getName() << std::endl;
 }
 
 // Remove product by ID
-bool Inventory::removeProduct(int productId) {
-    for (auto it = products.begin(); it != products.end(); ++it) {
-        if (it->getId() == productId) {
+bool Inventory::deleteProduct(int productId)
+{
+    for (auto it = products.begin(); it != products.end(); ++it)
+    {
+        if (it->getId() == productId)
+        {
             products.erase(it);
             std::cout << "Product removed with ID: " << productId << std::endl;
             return true;
@@ -24,10 +28,13 @@ bool Inventory::removeProduct(int productId) {
 }
 
 // Find product by ID
-Product* Inventory::findProductById(int productId) {
-    for (auto& product : products) {
-        if (product.getId() == productId) {
-            return &product;
+Product *Inventory::findProductById(int productId)
+{
+    for (auto &product : products)
+    {
+        if (product.getId() == productId)
+        {
+            return &product; // Return a pointer to the product if found
         }
     }
     std::cout << "Product with ID " << productId << " not found." << std::endl;
@@ -35,10 +42,13 @@ Product* Inventory::findProductById(int productId) {
 }
 
 // Find products by name (partial match allowed)
-std::vector<Product> Inventory::findProductsByName(const std::string& name) {
+std::vector<Product> Inventory::findProductsByName(const std::string &name) const
+{
     std::vector<Product> matchingProducts;
-    for (const auto& product : products) {
-        if (product.getName().find(name) != std::string::npos) {
+    for (const auto &product : products)
+    {
+        if (product.getName().find(name) != std::string::npos)
+        {
             matchingProducts.push_back(product);
         }
     }
@@ -46,9 +56,11 @@ std::vector<Product> Inventory::findProductsByName(const std::string& name) {
 }
 
 // Update stock of a product
-bool Inventory::updateStock(int productId, int quantity) {
-    Product* product = findProductById(productId);
-    if (product) {
+bool Inventory::updateStock(int productId, int quantity)
+{
+    Product *product = findProductById(productId);
+    if (product)
+    {
         product->setStockQuantity(quantity);
         std::cout << "Stock updated for product ID " << productId << " to " << quantity << " units." << std::endl;
         return true;
@@ -58,18 +70,18 @@ bool Inventory::updateStock(int productId, int quantity) {
 }
 
 // Display all products in inventory
-void Inventory::displayAllProducts() const {
+void Inventory::displayAllProducts() const
+{
     std::cout << "Inventory List:" << std::endl;
-    for (const auto& product : products) {
+    for (const auto &product : products)
+    {
         product.displayProduct();
-        std::cout << "-----------------------------" << std::endl;
+        std::cout << std::endl;
     }
 }
 
-// Getter for the products vector (read-only)
-const std::vector<Product>& Inventory::getProducts() const {
+// New version of listProducts that returns a reference to the product vector
+const std::vector<Product> &Inventory::listProducts() const
+{
     return products;
 }
-
-// Destructor
-Inventory::~Inventory() {}
