@@ -18,20 +18,19 @@ public:
     DatabaseConnection& operator=(const DatabaseConnection&) = delete;
 
     // Static method to get the singleton instance
-    static DatabaseConnection *getInstance()
-    {
-        if (!instance)
-        {
-            instance = new DatabaseConnection();
+    static DatabaseConnection *getInstance() {
+        if  (!instance) {
+            instance  = new DatabaseConnection();
         }
         return instance;
     }
 
     // Method to simulate a database connection
-    void connect()
-    {
+    void connect() {
         std::cout << "Connecting to the database..." << std::endl;
     }
+
+   
 
     // Method to simulate data retrieval
     std::string fetchData(const std::string &query)
