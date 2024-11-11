@@ -10,7 +10,7 @@ private:
     static DatabaseConnection *instance; // Singleton instance
 
     // Private constructor to prevent instantiation
-    DatabaseConnection() {}
+    DatabaseConnection() {} //Private constructor
 
 public:
     // Delete copy constructor and assignment operator to prevent copying
