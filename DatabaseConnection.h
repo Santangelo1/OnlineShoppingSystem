@@ -33,8 +33,8 @@ public:
 
 std::string fetchData(const std::string&  query) {
     std::cout << "Executing query: " << query << std::endl;
-    return "Sample Data";  //Simulate fetched data
-}
+    return "Sample Data for query: " + query;
+   }
 };
 
 
