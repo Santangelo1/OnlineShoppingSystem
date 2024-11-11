@@ -17,7 +17,7 @@ public:
     DatabaseConnection(const DatabaseConnection&) = delete;
     DatabaseConnection& operator=(const DatabaseConnection&) = delete;
 
-    // Static method to get the singleton instance
+    // Static method to get the singleton instance of DatabaseConnection
     static DatabaseConnection *getInstance() {
         if  (!instance) {
             instance  = new DatabaseConnection();
