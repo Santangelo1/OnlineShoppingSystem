@@ -4,12 +4,12 @@
 #include <iostream>
 #include <string>
 
-class DatabaseConnection
-{
-private:
-    static DatabaseConnection *instance; // Singleton instance
+class DatabaseConnection {
+    private:
+    //Static instance for Singleton pattern
+    static DatabaseConnection *instance; 
 
-    // Private constructor to prevent instantiation
+    // Private constructor to prevent instantiation from outside
     DatabaseConnection() {} //Private constructor
 
 public:
