@@ -14,8 +14,8 @@ private:
 
 public:
     // Delete copy constructor and assignment operator to prevent copying
-    DatabaseConnection(const DatabaseConnection &) = delete;
-    DatabaseConnection &operator=(const DatabaseConnection &) = delete;
+    DatabaseConnection(const DatabaseConnection&) = delete;
+    DatabaseConnection& operator=(const DatabaseConnection&) = delete;
 
     // Static method to get the singleton instance
     static DatabaseConnection *getInstance()
