@@ -25,7 +25,7 @@ public:
         return instance;
     }
 
-    // Method to simulate a database connection
+    // Simulate a method to connect to the  database 
     void connect() {
         std::cout << "Connecting to the database..." << std::endl;
     }
