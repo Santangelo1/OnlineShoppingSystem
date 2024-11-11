@@ -28,20 +28,14 @@ public:
     // Method to simulate a database connection
     void connect() {
         std::cout << "Connecting to the database..." << std::endl;
+    }
        
 
-
-    // Method to simulate data retrieval
-    std::string fetchData(const std::string&  query) {
-        std::cout << "Executing query: " << query << std::endl;
-        return "Sample Data";  //Simulate fetched data
-    }
-
-  
-    }
+std::string fetchData(const std::string&  query) {
+    std::cout << "Executing query: " << query << std::endl;
+    return "Sample Data";  //Simulate fetched data
+}
 };
 
-// Initialize static member
-DatabaseConnection *DatabaseConnection::instance = nullptr;
 
 #endif // DATABASE_CONNECTION_H
