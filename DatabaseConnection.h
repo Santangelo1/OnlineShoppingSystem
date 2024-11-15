@@ -1,41 +1,45 @@
 #ifndef DATABASE_CONNECTION_H
 #define DATABASE_CONNECTION_H
 
+#include <memory>
 #include <iostream>
-#include <string>
+#include <stdexcept>
 
 class DatabaseConnection {
-    private:
-    //Static instance for Singleton pattern
-    static DatabaseConnection *instance; 
-
-    // Private constructor to prevent instantiation from outside
-    DatabaseConnection() {} 
-
 public:
-    // Delete copy constructor and assignment operator to prevent copying
-    DatabaseConnection(const DatabaseConnection&) = delete;
-    DatabaseConnection& operator=(const DatabaseConnection&) = delete;
+    static std::unique_ptr<DatabaseConnection> instance;
 
-    // Static method to get the singleton instance of DatabaseConnection
-    static DatabaseConnection *getInstance() {
-        if  (!instance) {
-            instance  = new DatabaseConnection();
+    static DatabaseConnection& getInstance() {
+        if (!instance) {
+            instance = std::unique_ptr<DatabaseConnection>(new DatabaseConnection());
         }
-        return instance;
+        return *instance;
     }
 
-    // Simulate a method to connect to the  database 
     void connect() {
-        std::cout << "Connecting to the database..." << std::endl;
+        try {
+            // Add actual connection logic here
+            std::cout << "Connecting to the database...\n";
+        } catch (const std::exception& e) {
+            std::cerr << "Error connecting to the database: " << e.what() << "\n";
+        }
     }
-       
 
-std::string fetchData(const std::string&  query) {
-    std::cout << "Executing query: " << query << std::endl;
-    return "Sample Data for query: " + query;
-   }
+    void saveData() {
+        try {
+            // Add actual data saving logic here
+            std::cout << "Saving data to the database...\n";
+        } catch (const std::exception& e) {
+            std::cerr << "Error saving data: " << e.what() << "\n";
+        }
+    }
+
+private:
+    DatabaseConnection() = default;
+    ~DatabaseConnection() = default;
 };
 
+// Initialize the static instance to nullptr
+std::unique_ptr<DatabaseConnection> DatabaseConnection::instance = nullptr;
 
 #endif // DATABASE_CONNECTION_H

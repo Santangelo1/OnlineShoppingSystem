@@ -1,13 +1,11 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
-#include "User.h"
-#include "Cart.h"  
+#include <string>
+#include "User.h"  //Customer ia a type of user
+#include "DatabaseConnection.h" 
 
-#include "Order.h"
-#include <vector>
-
-class Customer : public User {
+class Customer : public User {  //Inherit from user, if applicable
 private:
     Cart cart;                        // Customer's cart
     std::vector<Order> orderHistory;  // Order history

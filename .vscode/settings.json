@@ -5,6 +5,7 @@
         "endl",
         "fstream",
         "getline",
+        "ifndef",
         "ifstream",
         "iostream",
         "istringstream",

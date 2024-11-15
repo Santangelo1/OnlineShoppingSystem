@@ -8,6 +8,8 @@
 #include "Cart.h"
 #include "Order.h"
 #include "Payment.h"
+#include "DatabaseConnection.h"
+
 
 // Function declarations
 void customerMenu(std::shared_ptr<Customer> customer, Inventory& inventory);
@@ -15,8 +17,20 @@ void adminMenu(std::shared_ptr<Admin> admin, Inventory& inventory);
 std::shared_ptr<User> loginUser(const std::string& username, const std::string& password, Inventory& inventory);
 
 int main() {
+    // Initialize Inventory, User, and Order objects
     Inventory inventory;
+    User, user;
+    Order, order;
 
+    //Load data using DatabaseConnection singleton
+    inventory.loadInventoryData();
+    user.loadUserData();
+    order.loadOrderData();
+
+    std::cout << "System initialized successfully!" << std::endl;
+
+    return 0;
+}
     // Load initial data from CSV files
     inventory.loadProductsFromFile("data/products.csv");  // Assume this function loads product data
     // Other data loading (users, orders) can be added here
