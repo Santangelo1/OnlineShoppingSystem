@@ -1,11 +1,33 @@
 #include "Inventory.h"
+
 #include "DatabaseConnection.h"
 
-void Inventory::loadInventoryData()
-{
-    DatabaseConnection *db = DatabaseConnection::getInstance();
-    db->connect();
-    std::string data = db->fetchData("SELECT * FROM inventory");
-    // Process `data` to populate inventory...
-    std::cout << "Loaded inventory data: " << data << std::endl;
+// Initialize static members
+std::unique_ptr<DatabaseConnection> DatabaseConnection::instance = nullptr;
+std::mutex DatabaseConnection::mutex;
+
+DatabaseConnection& DatabaseConnection::getInstance() {
+    std::lock_guard<std::mutex> lock(mutex); // Thread safety
+    if (!instance) {
+        instance = std::make_unique<DatabaseConnection>();
+    }
+    return *instance;
+}
+
+void DatabaseConnection::connect() {
+    try {
+        // Add actual connection logic here
+        std::cout << "Connecting to the database...\n";
+    } catch (const std::exception& e) {
+        std::cerr << "Error connecting to the database: " << e.what() << "\n";
+    }
+}
+
+void DatabaseConnection::saveData(const std::string& data) {
+    try {
+        // Add actual data-saving logic here
+        std::cout << "Saving data to the database: " << data << "\n";
+    } catch (const std::exception& e) {
+        std::cerr << "Error saving data: " << e.what() << "\n";
+    }
 }
