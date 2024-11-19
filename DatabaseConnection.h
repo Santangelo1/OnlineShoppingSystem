@@ -1,45 +1,34 @@
 #ifndef DATABASE_CONNECTION_H
 #define DATABASE_CONNECTION_H
 
-#include <memory>
 #include <iostream>
+#include <memory>
 #include <stdexcept>
+#include <mutex> // For thread safety
 
 class DatabaseConnection {
 public:
-    static std::unique_ptr<DatabaseConnection> instance;
+    // Singleton getter
+    static DatabaseConnection& getInstance();
 
-    static DatabaseConnection& getInstance() {
-        if (!instance) {
-            instance = std::unique_ptr<DatabaseConnection>(new DatabaseConnection());
-        }
-        return *instance;
-    }
+    // Connect to the database
+    void connect();
 
-    void connect() {
-        try {
-            // Add actual connection logic here
-            std::cout << "Connecting to the database...\n";
-        } catch (const std::exception& e) {
-            std::cerr << "Error connecting to the database: " << e.what() << "\n";
-        }
-    }
-
-    void saveData() {
-        try {
-            // Add actual data saving logic here
-            std::cout << "Saving data to the database...\n";
-        } catch (const std::exception& e) {
-            std::cerr << "Error saving data: " << e.what() << "\n";
-        }
-    }
+    // Save data to the database
+    void saveData(const std::string& data);
 
 private:
+    // Private constructor and destructor to prevent instantiation
     DatabaseConnection() = default;
     ~DatabaseConnection() = default;
-};
 
-// Initialize the static instance to nullptr
-std::unique_ptr<DatabaseConnection> DatabaseConnection::instance = nullptr;
+    // Delete copy constructor and assignment operator to prevent copying
+    DatabaseConnection(const DatabaseConnection&) = delete;
+    DatabaseConnection& operator=(const DatabaseConnection&) = delete;
+
+    // Static instance of the singleton
+    static std::unique_ptr<DatabaseConnection> instance;
+    static std::mutex mutex; // For thread safety
+};
 
 #endif // DATABASE_CONNECTION_H
