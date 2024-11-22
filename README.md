@@ -1,26 +1,31 @@
-# OnlineShoppingManagementSystem
+# Online Shopping Management System
 
 Il carrello della spesa- The shopping cart
 
 ## Project Overview
 
-This project is an online shopping cart application that allows users with the ability to browse products, manage a shopping cart, place orders, and simulate a payment system. The system also includes an admin panel that enables inventory management, sales tracking, and customer support functionality.
+The Online Shopping System is a console-based e-commerce platform designed to provide seamless shopping experiences for customers and management 
+functionalities for administrators. It includes features such as product catalog management, order processing, payment simulation, and sales analytics.
 
-## Key Features
 
 ### Core Features
 
 - **User Authentication**: Supports sign-up, login, logout, and profile management for users.
   
-- **Product Catalog**: Allows users to view, search, and sort through available products.
+- **Product Catalog**
+- Add, update, delete, and search for products.
 - 
-- **Shopping Cart**: Users can add products to their cart, update quantities, and proceed to checkout.
+- **Shopping Cart**
+- Add items to the cart, view cart, and search for products.
 - 
-- **Order Management**: Users can view order history, track order status, and admins can view all orders.
+- **Order Management**
+- Place and manage orders, view order history
 - 
-- **Payment Integration**: Simulates payment processing with options for different payment methods.
+- **Payment Integration**
+- Simulate payments for checkout.
 - 
-- **Admin Panel**: Admins can manage products, view detailed sales reports, and handle customer queries.
+- **Admin Panel**
+- Manage inventory, view sales reports, and handle customer queries.
 
 ### Innovative Features
 
@@ -34,8 +39,7 @@ The Online Shopping Cart System includes several innovative features that enhanc
 2. **Real-Time Inventory Notifications**
    - **Description**: Notifies users when products they are interested in are back in stock or running low.
    - **How it Works**: Users can subscribe to stock alerts for specific products, and the system sends notifications when those items are available or in limited stock.
-   - **Benefits**: Helps customers secure desired items and reduces the chance of abandoned purchases due to stock issues.
-
+   
 3. **Advanced Sales Analytics in Admin Panel**
    - **Description**: Provides detailed analytics for the admin, including popular products, sales trends, and customer behavior.
    - **How it Works**: The admin panel includes dashboards showing total sales, most popular items, low stock alerts, and revenue metrics.
@@ -56,6 +60,46 @@ The Online Shopping Cart System includes several innovative features that enhanc
    - **How it Works**: Admins can set up discounts with start and end times, and discounted prices are displayed to users during the flash sale period.
    - **Benefits**: Drives immediate purchases and helps clear out excess inventory.
   
+
+Directory Structure
+
+OnlineShoppingSystem/
+├── build/                  # Build artifacts
+├── data/                   # CSV files for initialization
+│   ├── products.csv
+│   ├── users.csv
+│   ├── orders.csv
+├── include/                # Header files
+│   ├── Admin.h
+│   ├── Customer.h
+│   ├── Inventory.h
+│   ├── Logger.h
+│   ├── NotificationService.h
+│   ├── Order.h
+│   ├── Payment.h
+│   ├── Product.h
+│   ├── RecommendationEngine.h
+│   ├── SalesAnalytics.h
+│   ├── User.h
+├── src/                    # Source files
+│   ├── Admin.cpp
+│   ├── Customer.cpp
+│   ├── Inventory.cpp
+│   ├── Logger.cpp
+│   ├── NotificationService.cpp
+│   ├── Order.cpp
+│   ├── Payment.cpp
+│   ├── Product.cpp
+│   ├── RecommendationEngine.cpp
+│   ├── SalesAnalytics.cpp
+│   ├── User.cpp
+│   ├── main.cpp
+├── tests/                  # Test files
+├── CMakeLists.txt          # CMake build configuration
+├── README.md               # Project documentation
+└── .gitignore              # Git ignored files
+
+  
 -File Initialization
 The system initializes with data from three files:
 
@@ -63,24 +107,116 @@ The system initializes with data from three files:
 
 - users.csv   : Contains user account information.
 
-Compilation Instructions
+**Build  Instructions**
 
-1. Ensure you have a C++ compiler(such as g++) installed.
-2. 
-3. To compile the project, run the following command in the terminal:
-4. 
-   g++ -o shopping_cart main.cpp Product.cpp Inventory.cpp User.cpp Cart.cpp Order.cpp Payment.cpp -std=c++11
+**Prerequisites
 
-Execution Instructions
+- C++ Compiler: GCC or Clang
 
-To run the project:
+- CMake: Version 3.10 or higher.
 
-1. Place products.csv, users.csv, and orders.csv in same directory as the executable.
-2. 
-3. Execute the program with the following command:
-4. 
-   ./shopping_cart
-5. Follow on-screen prompts to interact with the application.
+- Git: for version control.
+
+- Clone the repository:
+ -- git clone https://github.com/your-repo/OnlineShoppingSystem.git
+cd OnlineShoppingSystem
+
+**Create a build directory and run CMake:
+
+mkdir build
+cd build
+cmake ..
+make
+
+Run the program:
+./OnlineShoppingSystem
+
+-UML Diagram:
+
+**The following diagram represents the class structure and relationships within the Online Shopping System
+
+-classDiagram
+    class Admin {
+        +manageUsers()
+        +viewSalesData()
+    }
+    
+    class Cart {
+        +addItem()
+        +removeItem()
+        +viewCart()
+        +calculateTotal()
+    }
+    
+    class Customer {
+        +register()
+        +login()
+        +viewOrderHistory()
+    }
+    
+    class DatabaseConnection {
+        +connect()
+        +disconnect()
+        +executeQuery()
+    }
+    
+    class Inventory {
+        +updateStock()
+        +getStock()
+    }
+    
+    class Logger {
+        +logInfo()
+        +logError()
+    }
+    
+    class NotificationService {
+        +sendNotification()
+    }
+    
+    class Order {
+        +createOrder()
+        +cancelOrder()
+        +viewOrderDetails()
+    }
+    
+    class Payment {
+        +processPayment()
+        +refund()
+    }
+    
+    class Product {
+        +getDetails()
+        +updateDetails()
+    }
+    
+    class RecommendationEngine {
+        +generateRecommendations()
+    }
+    
+    class SalesAnalytics {
+        +generateReport()
+    }
+    
+    class User {
+        +getUserDetails()
+        +updateDetails()
+    }
+
+    Admin --> User
+    Cart --> Product
+    Customer --> Cart
+    Customer --> Order
+    Order --> Payment
+    Product --> Inventory
+    RecommendationEngine --> Product
+    NotificationService --> User
+    SalesAnalytics --> Order
+    DatabaseConnection --> Inventory
+    DatabaseConnection --> Order
+    DatabaseConnection --> User
+
+
 
 Project Status
 
@@ -88,7 +224,10 @@ Project Status
 
 -Known Bugs: None at this time.
 
--Incomplete Features: None
+-Known Issues:
+
+Recommendation engine lacks dynamic updates.
+Real-time notifications have limited integration.
 
 User Manual
 
@@ -121,60 +260,7 @@ Here are the design elements:
 -User Class: A base class for Customer and Admin, supporting role-specific functionalities.
 -Payment Class: Uses polymorphism to allow different payment methods.
 
-UML Diagrams
+License
 
-The following UML Diagrams illustrate the structure and relationships between classes.
-
-classDiagram
-    class User {
-        +string username
-        +string password
-        +displayRole()
-        #authenticate()
-        (abstract)
-    }
-    User <|-- Customer
-    User <|-- Admin
-
-    class Customer {
-        +addToCart(Product product)
-        +checkout()
-    }
-
-    class Admin {
-        +manageInventory()
-        +generateReport()
-    }
-
-    class Product {
-        +int id
-        +string name
-        +double price
-        +bool isAvailable
-    }
-
-    class Cart {
-        +addProduct(Product product)
-        +removeProduct(Product product)
-        +viewCart()
-    }
-
-    class Order {
-        +int orderId
-        +User user
-        +Product product
-        +int quantity
-        +string status
-    }
-
-    class Inventory {
-        +addProduct(Product product)
-        +deleteProduct(int id)
-        +listProducts()
-    }
-
-    User <-- Cart : owns
-    User <-- Order : places
-    Product <-- Inventory : contains
-    Cart "1" -- "0..*" Product : contains
-    Order "1" -- "1" Product : contains
+This project is licensed under the MIT License. See the LICENSE file for details.
+ 
