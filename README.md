@@ -1,111 +1,49 @@
-# Online Shopping Management System
 
 Il carrello della spesa- The shopping cart
 
-## Project Overview
 
-The Online Shopping System is a console-based e-commerce platform designed to provide seamless shopping experiences for customers and management 
-functionalities for administrators. It includes features such as product catalog management, order processing, payment simulation, and sales analytics.
+# Online Shopping Cart System
 
+## **Overview**
+This project is an Online Shopping Cart System designed to manage user interactions with products, carts, and orders. It implements core features such as user authentication, product management, order processing, and more.
 
-### Core Features
+The system is implemented in C++ and includes Object-Oriented Programming (OOP) principles such as inheritance, polymorphism, and dynamic memory management.
 
-- **User Authentication**: Supports sign-up, login, logout, and profile management for users.
-  
-- **Product Catalog**
-- Add, update, delete, and search for products.
-- 
-- **Shopping Cart**
-- Add items to the cart, view cart, and search for products.
-- 
-- **Order Management**
-- Place and manage orders, view order history
-- 
-- **Payment Integration**
-- Simulate payments for checkout.
-- 
-- **Admin Panel**
-- Manage inventory, view sales reports, and handle customer queries.
+---
 
-### Innovative Features
+## **Features**
+1. **User Authentication**: Sign-up, login, logout, and profile management.
+2. **Product Management**: Add, update, delete, and search for products.
+3. **Shopping Cart**: Add products to the cart, remove them, view the cart, and calculate totals.
+4. **Order Management**: Place orders, view order history, and track order status.
+5. **Payment System**: Simulate payment methods (e.g., credit card and Apple Pay).
+6. **Admin Panel**: Manage products, view sales reports, and handle customer queries.
+7. **Recommendations**: Dynamic product recommendations based on cart content.
+8. **Notifications**: Users and admins receive system notifications for actions.
 
-The Online Shopping Cart System includes several innovative features that enhance functionality and user experience.
+---
 
-1. **Dynamic Recommendations Engine**
-   - **Description**: Provides product recommendations to users based on items in their cart or purchase history.
-   - **How it Works**: The system suggests related products or items commonly bought together, encouraging users to explore more products and increase cart size.
-   - **Benefits**: Increases user engagement and drives additional sales through personalized recommendations.
+## **File Initialization**
+The system loads its data from three key files:
+1. **`data/products.csv`**: Contains product information (ID, name, category, price, quantity).
+2. **`data/orders.csv`**: Stores order data (order ID, user ID, product ID, quantity, total).
+3. **`data/users.csv`**: Manages user data (user ID, username, password).
 
-2. **Real-Time Inventory Notifications**
-   - **Description**: Notifies users when products they are interested in are back in stock or running low.
-   - **How it Works**: Users can subscribe to stock alerts for specific products, and the system sends notifications when those items are available or in limited stock.
-   
-3. **Advanced Sales Analytics in Admin Panel**
-   - **Description**: Provides detailed analytics for the admin, including popular products, sales trends, and customer behavior.
-   - **How it Works**: The admin panel includes dashboards showing total sales, most popular items, low stock alerts, and revenue metrics.
-   - **Benefits**: Empowers admins with insights into sales patterns and stock requirements, improving inventory management and decision-making.
+---
 
-4. **AI-Driven Search and Filter Options**
-   - **Description**: Enhances the product search function by allowing flexible searches that interpret synonyms and related terms.
-   - **How it Works**: Uses a simple search algorithm that recognizes related keywords and common product terms, returning relevant results even for partial matches or misspellings.
-   - **Benefits**: Helps users find products quickly and efficiently, enhancing the overall shopping experience.
+## **Compilation Instructions**
+### Prerequisites
+Ensure the following tools are installed:
+- **C++ Compiler** (e.g., `g++`)
+- **CMake** (for project building)
+- **Make**
 
-5. **Abandoned Cart Recovery Feature**
-   - **Description**: Detects when users leave items in their cart without checking out and sends reminders or discount offers.
-   - **How it Works**: Tracks inactive carts and prompts users via email or notification to complete their purchase, sometimes with limited-time discount offers.
-   - **Benefits**: Increases conversion rates by reminding users about items they were interested in, reducing the number of abandoned carts.
+### Steps to Build
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/OnlineShoppingCart.git
+   cd OnlineShoppingCart
 
-6. **Admin-Controlled Flash Sales and Discounts**
-   - **Description**: Allows admins to create time-limited sales on specific products, visible only during the sale period.
-   - **How it Works**: Admins can set up discounts with start and end times, and discounted prices are displayed to users during the flash sale period.
-   - **Benefits**: Drives immediate purchases and helps clear out excess inventory.
-  
-
-Directory Structure
-
-OnlineShoppingSystem/
-├── build/                  # Build artifacts
-├── data/                   # CSV files for initialization
-│   ├── products.csv
-│   ├── users.csv
-│   ├── orders.csv
-├── include/                # Header files
-│   ├── Admin.h
-│   ├── Customer.h
-│   ├── Inventory.h
-│   ├── Logger.h
-│   ├── NotificationService.h
-│   ├── Order.h
-│   ├── Payment.h
-│   ├── Product.h
-│   ├── RecommendationEngine.h
-│   ├── SalesAnalytics.h
-│   ├── User.h
-├── src/                    # Source files
-│   ├── Admin.cpp
-│   ├── Customer.cpp
-│   ├── Inventory.cpp
-│   ├── Logger.cpp
-│   ├── NotificationService.cpp
-│   ├── Order.cpp
-│   ├── Payment.cpp
-│   ├── Product.cpp
-│   ├── RecommendationEngine.cpp
-│   ├── SalesAnalytics.cpp
-│   ├── User.cpp
-│   ├── main.cpp
-├── tests/                  # Test files
-├── CMakeLists.txt          # CMake build configuration
-├── README.md               # Project documentation
-└── .gitignore              # Git ignored files
-
-  
--File Initialization
-The system initializes with data from three files:
-
-- products.csv :Contains product inventory data.
-
-- users.csv   : Contains user account information.
 
 **Build  Instructions**
 
@@ -134,87 +72,71 @@ Run the program:
 -UML Diagram:
 
 **The following diagram represents the class structure and relationships within the Online Shopping System
-
--classDiagram
-    class Admin {
-        +manageUsers()
-        +viewSalesData()
-    }
-    
-    class Cart {
-        +addItem()
-        +removeItem()
-        +viewCart()
-        +calculateTotal()
-    }
-    
-    class Customer {
-        +register()
-        +login()
-        +viewOrderHistory()
-    }
-    
-    class DatabaseConnection {
-        +connect()
-        +disconnect()
-        +executeQuery()
-    }
-    
-    class Inventory {
-        +updateStock()
-        +getStock()
-    }
-    
-    class Logger {
-        +logInfo()
-        +logError()
-    }
-    
-    class NotificationService {
-        +sendNotification()
-    }
-    
-    class Order {
-        +createOrder()
-        +cancelOrder()
-        +viewOrderDetails()
-    }
-    
-    class Payment {
-        +processPayment()
-        +refund()
-    }
-    
-    class Product {
-        +getDetails()
-        +updateDetails()
-    }
-    
-    class RecommendationEngine {
-        +generateRecommendations()
-    }
-    
-    class SalesAnalytics {
-        +generateReport()
-    }
-    
+classDiagram
     class User {
-        +getUserDetails()
-        +updateDetails()
+        +int id
+        +string username
+        +string password
+        +authenticate(password: string): bool
     }
 
-    Admin --> User
-    Cart --> Product
-    Customer --> Cart
-    Customer --> Order
-    Order --> Payment
-    Product --> Inventory
-    RecommendationEngine --> Product
-    NotificationService --> User
-    SalesAnalytics --> Order
-    DatabaseConnection --> Inventory
+    class Customer {
+        +ShoppingCart cart
+        +addToCart(product: Product, quantity: int)
+        +viewCart()
+        +checkout()
+    }
+
+    class Admin {
+        +addProduct()
+        +updateProduct()
+        +deleteProduct()
+        +generateSalesReport()
+    }
+
+    class Product {
+        +int id
+        +string name
+        +string category
+        +double price
+        +int quantity
+        +getId(): int
+        +getName(): string
+        +getPrice(): double
+    }
+
+    class ShoppingCart {
+        +addProduct(product: Product, quantity: int)
+        +removeProduct(productId: int)
+        +viewCart()
+        +calculateTotal(): double
+        +clearCart()
+    }
+
+    class Order {
+        +int orderId
+        +int userId
+        +int productId
+        +int quantity
+        +double total
+    }
+
+    class DatabaseConnection {
+        -static DatabaseConnection instance
+        +addOrder(order: Order)
+        +getOrders(): vector<Order>
+        +saveOrdersToFile(filePath: string)
+        +loadOrdersFromFile(filePath: string)
+    }
+
+    User <|-- Customer
+    User <|-- Admin
+    Customer --> ShoppingCart
+    ShoppingCart --> Product
+    Order --> Product
     DatabaseConnection --> Order
-    DatabaseConnection --> User
+
+
 
 
 
@@ -227,22 +149,27 @@ Project Status
 -Known Issues:
 
 Recommendation engine lacks dynamic updates.
-Real-time notifications have limited integration.
+
 
 User Manual
 
-1. Customer Features:
+ Customer Operations
 
-- Login to view the product catalog and add items to cart.
-- Product catalog: add, update, delete, and search for products.
-- Shopping Cart: Add to cart, remove from cart, and view cart.
-- Order Management: Place an order, view order history, and track order status.
-- Payment Integration: Simulate a payment system.
+-Browse products and add them to the cart.
+-View and remove items from the cart.
+-Checkout and place orders.
 
-For Admins
--Manage Inventory: Add, update, or delete products in the cart.
--View Analytics: Access sale trends, most popular items, and low stock alerts.
--Flash Sales: Set-up time limited discounts on selected products.
+
+Admin Operations
+
+-Add, update, or delete products.
+-Generate and view sales reports
+-Handle customer queries
+
+
+
+
+
 
 Concepts Covered
 -Inheritance
